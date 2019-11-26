@@ -1,7 +1,7 @@
 [
 {
   "modid": "matchamod",
-  "name": "Matcha Mod",
+  "name": "MatchaMod",
   "description": "Past and present of Matcha.",
   "version": "${version}",
   "mcversion": "${mcversion}",
@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authorList": ["Jiubook"],
   "credits": "Minecraft, Notch",
-  "logoFile": "",
+  "logoFile": "logo.png",
   "screenshots": [],
   "dependencies": []
 }

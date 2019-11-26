@@ -7,8 +7,9 @@ import com.github.jiubook.matchaMod.item.ItemLoader;
 
 public class CreativeTabsRegister {
 	public static CreativeTabs tabMatcha;
-	
-	public CreativeTabsRegister(FMLPreInitializationEvent event) {
+
+	//public CreativeTabsRegister(FMLPreInitializationEvent event)
+	public CreativeTabsRegister() {
 		tabMatcha = new CreativeTabs("tabMatcha") {
 			@Override
 			public ItemStack getTabIconItem() {

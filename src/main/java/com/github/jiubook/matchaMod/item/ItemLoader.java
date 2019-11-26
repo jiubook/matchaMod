@@ -26,37 +26,33 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @Mod.EventBusSubscriber(modid = matchaMod.MODID)
 public final class ItemLoader {
 
+	//Item_Seed
 	public static Item Matcha_Seed = new ItemNormal("Matcha_Seed", 64, CreativeTabsRegister.tabMatcha);
-//	public static Item ItemToolsMatchaShears 
-//		= new ItemToolsMatchaShears().setUnlocalizedName("matchaShears");
+	public static Item Kraurotic_Matcha_Seed = new ItemNormal("Kraurotic_Matcha_Seed", 64, CreativeTabsRegister.tabMatcha);
+	public static Item Innocent_Matcha_Seed = new ItemNormal("Innocent_Matcha_Seed", 64, CreativeTabsRegister.tabMatcha);
+	public static Item Matcha_Cup = new ItemNormal("Matcha_Cup", 64, CreativeTabsRegister.tabMatcha);
 	
-/* public static void init(){
-		ForgeRegistries.ITEMS.register(ItemMatchaSeed.setRegistryName("matchaSeed"));
-		ForgeRegistries.ITEMS.register(ItemToolsMatchaShears.setRegistryName("matchaShears"));
-	}*/
-
-/*	@SideOnly(Side.CLIENT)
-	public static void clintInit() {
-		ModelLoader.setCustomModelResourceLocation(ItemMatchaSeed, 0, 
-				new ModelResourceLocation(ItemMatchaSeed.getRegistryName(), "inventory"));
-		ModelLoader.setCustomModelResourceLocation(ItemToolsMatchaShears, 0, 
-				new ModelResourceLocation(ItemToolsMatchaShears.getRegistryName(), "inventory"));
-	}*/
 	@SideOnly(Side.CLIENT)
 	public static void initModels() {
 		registerRender(Matcha_Seed);
+		registerRender(Kraurotic_Matcha_Seed);
+		registerRender(Innocent_Matcha_Seed);
+		registerRender(Matcha_Cup);
 	}
 	
-	public ItemLoader(FMLPreInitializationEvent event) {
+	//public ItemLoader(FMLPreInitializationEvent event)
+	public ItemLoader() {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 	
 	@SubscribeEvent
 	public void registerItems(RegistryEvent.Register<Item> event) {
-		event.getRegistry().registerAll(Matcha_Seed);
+		event.getRegistry().registerAll(
+				Matcha_Seed, Kraurotic_Matcha_Seed, Innocent_Matcha_Seed, Matcha_Cup
+				);
 	}
 	
-	@SideOnly(Side.CLIENT)
+  	@SideOnly(Side.CLIENT)
 	private static void registerRender(Item item) {
 		if (item.getHasSubtypes()) {
 			NonNullList<ItemStack> subItems = NonNullList.create();
@@ -72,7 +68,5 @@ public final class ItemLoader {
 		else {
 			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(matchaMod.MODID + ":" + item.delegate.name().getResourcePath(), "inventory"));
 		}
-//		ModelResourceLocation model = new ModelResourceLocation(item.getRegistryName(), "inventory");
-//		ModelLoader.setCustomModelResourceLocation(item, 0, model);
 	}
 }

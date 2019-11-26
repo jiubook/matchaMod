@@ -12,9 +12,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 @Mod.EventBusSubscriber
 public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
-		//ItemLoader.init();
-		new CreativeTabsRegister(event);
-		new ItemLoader(event);
+		new CreativeTabsRegister();
+		new ItemLoader();
 	}
 	
 	public void init(FMLPreInitializationEvent event) {
